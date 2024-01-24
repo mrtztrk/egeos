@@ -12,7 +12,9 @@ body {
     url('https://img.freepik.com/free-photo/airport-terminal_1417-1456.jpg?w=2000&t=st=1705813374~exp=1705813974~hmac=edf404dd82a02410392ba392b2253c0ab535f8d4b212831579c6a97f85184a6c');
   background-size: cover;
   background-position: center center;
-  background-repeat: no-repeat;
+  background-repeat: repeat-y;
+  width: 100vw;
+  height: 100vh;
 }
 
 main {
@@ -45,4 +47,40 @@ main {
 }
 .mini-info {
   padding: 0.5rem;
+}
+
+.loader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.75s, visibility 0.75s;
+}
+
+.loader--hidden {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.loader::after {
+  content: '';
+  width: 75px;
+  height: 75px;
+  border: 15px solid #dddddd;
+  border-top-color: rgb(65, 148, 243);
+  border-radius: 50%;
+  animation: loading 0.75s ease infinite;
+}
+
+@keyframes loading {
+  from {
+    transform: rotate(0turn);
+  }
+  to {
+    transform: rotate(1turn);
+  }
 }

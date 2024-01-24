@@ -1,19 +1,15 @@
 const main = document.getElementById("main")
-
 let AIRPORTS;
-// console 23  yazmıyor async gerekli
 
 const getAirports = async () => {
 
     try {
-        const response = await fetch('https://frail-teal-ant.cyclic.app')
+        const response = await fetch('https://frail-teal-ant.cyclic.app/')
         const data = await response.json()
         AIRPORTS = data
         console.log(AIRPORTS); // Log the airports array to the console
-        console.log(AIRPORTS[0].title)
-        //div.innerHTML = AIRPORTS[0].title
 
-
+        main.innerHTML = ''
         AIRPORTS.forEach((airport) => {
             const { title, metar, taf } = airport
             const airportEl = document.createElement('div')
@@ -37,7 +33,6 @@ const getAirports = async () => {
             `
             main.appendChild(airportEl)
         })
-        console.log(main)
         // Use the 'data' array as needed in your client-side code
     } catch (error) {
         error => console.error('Error fetching airports:', error)
@@ -45,5 +40,12 @@ const getAirports = async () => {
 }
 getAirports()
 
-// Now you can use the 'airports' array in your index.js file
-console.log("helllo")
+// window.addEventListener("load", () => {
+//     const loader = document.querySelector(".loader");
+
+//     loader.classList.add("loader--hidden");
+
+//     loader.addEventListener("transitionend", () => {
+//         document.body.removeChild(loader);
+//     });
+// });
