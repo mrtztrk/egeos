@@ -4,7 +4,7 @@ let AIRPORTS;
 const getAirports = async () => {
 
     try {
-        const response = await fetch('https://frail-teal-ant.cyclic.app/')
+        const response = await fetch('https://cyclic-demo.vercel.app/')
         const data = await response.json()
         AIRPORTS = data
         console.log(AIRPORTS); // Log the airports array to the console
